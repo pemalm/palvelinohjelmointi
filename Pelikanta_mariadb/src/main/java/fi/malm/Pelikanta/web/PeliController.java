@@ -48,7 +48,7 @@ public class PeliController {
     		return "lisaa";
     	}
     	model.addAttribute("peli", peli);
-    	return "result";
+    	return "loginlista";
     }
     
     @PostMapping("/save")
