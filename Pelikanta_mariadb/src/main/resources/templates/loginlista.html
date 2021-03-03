@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pelit</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+		<div class="outer">
+			<div class="content">
+				<h2>
+					PELITIETOKANTA
+				</h2>
+				<br><br>
+    <table class="table table-striped">
+        <tr>
+            <th>Pelin nimi</th>
+            <th>Pelialusta</th>
+            <th>Median tyyppi</th>
+            <th>Vuosi</th>
+            <th>Lisätietoja</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each = "peli: ${pelit}">
+            <td th:text="${peli.nimi}"></td>
+            <td th:text="${peli.alusta}"></td>
+            <td th:text="${peli.formaatti}"></td>
+            <td th:text="${peli.vuosi}"></td>
+            <td th:text="${peli.info}"></td>
+            <td><a th:href="@{/delete/{id}(id=${peli.id})}" class="poista">Poista</a></td>
+            <td><a th:href="@{/muokkaa/{id}(id=${peli.id})}" class="muuta">Muokkaa</a></td>
+        </tr>
+    </table>
+    <br><br>
+    <form th:action="@{/lisaa}" method="post"><input type="submit" value="Lisää uusi"/></form>
+    <form th:action="@{/logout}" method="post"><input type="submit" value="Kirjaudu ulos"/></form>
+    </div></div>
+</body>
+</html>

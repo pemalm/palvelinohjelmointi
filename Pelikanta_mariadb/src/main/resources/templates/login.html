@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Kirjaudu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<main>
+		
+			<div class="outer">
+				<div class="content">
+
+
+					<h2>PELITIETOKANTA</h2>
+<br><br>
+					<div class="ohjetekstit">Ilman kirjautumista
+							voit ainoastaan tarkastella listaa, et voi tehdä lisäyksiä tai
+							muokata sitä.<br><br><a href="/listaa" class="listaa">LISTAA TIETOKANNAN PELIT</a>
+					</div>
+					<br><br><br><br>
+					
+					<form th:action="@{/login}" method="post" action="">
+						<div>
+							Kirjaudu sisään muokataksesi tietokantaa<br>
+							<br> 
+							<label>Käyttäjänimi:<br> <input type="text" name="username" />
+							</label><br> 
+							<label>Salasana:<br> <input type="password" name="password" />
+							</label>
+							<input type="submit" value="Kirjaudu" />
+						</div><div th:if="${param.error}" class="poista">Virheellinen tunnus/salasana.</div>
+					</form>
+				</div>
+			</div>
+	</main>
+</body>
+</html>

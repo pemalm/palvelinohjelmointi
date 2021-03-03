@@ -1,0 +1,46 @@
+ <!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Muokkaa</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+		<div class="outer">
+			<div class="content">
+				<h2>PELITIETOKANTA</h2>
+				<br><br>
+				<form th:object="${peli}" th:action="@{../save}" action="#"
+					method="post">
+					<input type="hidden" th:field="*{id}" class="form-control" /> 
+					<label for="nimi">Nimi: </label>
+					<input type="text" id="nimi" th:maxlength="50" th:field="*{nimi}" />
+					<br> 
+					<label for="alusta">Pelialusta: </label>
+					<input type="text" id="alusta" th:maxlength="50" th:field="*{alusta}" />
+					<br>
+					<label for="formaatti">Median tyyppi: </label>
+					<input type="text" id="formaatti" th:maxlength="50" th:field="*{formaatti}" />
+					<br>
+					<label for="vuosi">Julkaisuvuosi: </label>
+					<input type="text" id="vuosi" th:maxlength="4" th:field="*{vuosi}" />
+					<br>
+					<label for="info">Lisätietoja: </label> 
+					<input type="text" id="info" th:maxlength="50" th:field="*{info}" /> 
+					<br>
+					<br> 
+					<input type="submit" value="Tallenna"></input>
+					<br><br>
+					<div class="ohjetekstit">
+					- Nimi, Pelialusta, Median tyyppi, Lisätietoja, käytä 2-50 merkkiä.
+					<br>
+					- Vuosi, 4 merkkiä.</div>
+				</form>
+				<br>
+				<br>
+				<a href="/loginlista" class="muuta">Palaa takaisin listaukseen tallentamatta</a>
+			</div>
+		</div>
+</body>
+</html>
