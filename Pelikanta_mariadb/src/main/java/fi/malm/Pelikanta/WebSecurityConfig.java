@@ -33,8 +33,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
-
-    
 	@SuppressWarnings("rawtypes")
 	@Bean
     @Override
@@ -49,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                    .password("admin")
                    .roles("ADMIN")
                    .build();
-        
+    	
     	users.add(user);
     	
         return new InMemoryUserDetailsManager(users);

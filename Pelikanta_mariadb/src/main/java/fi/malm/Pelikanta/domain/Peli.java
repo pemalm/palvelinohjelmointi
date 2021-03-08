@@ -19,7 +19,8 @@ public class Peli {
     public Peli(){
     	super();
     }
-
+ 
+    
     public Peli(String nimi, String alusta, String formaatti, String vuosi, String info) {
         this.nimi = nimi;
         this.alusta = alusta;

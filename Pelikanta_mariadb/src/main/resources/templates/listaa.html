@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>Pelit</title>
 <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
-
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/}]]";
+    }
+</script>
 </head>
 <body>   	
 		<div class="outer">
@@ -12,7 +16,8 @@
 				<h2>
 					PELITIETOKANTA
 				</h2>
-				<br><br>
+				<br>
+				<br>
     <table class="table table-striped">
         <tr>
             <th>Pelin nimi</th>
@@ -28,7 +33,9 @@
             <td th:text="${peli.vuosi}"></td>
             <td th:text="${peli.info}"></td>
         </tr>
+
     </table>
     <br><br><a href="/login" class="muuta">Palaa takaisin kirjautumiseen</a>
-</div></div></body>
+</div></div>
+</body>
 </html>

@@ -1,5 +1,7 @@
  <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8">
 <title>Muokkaa</title>
@@ -13,30 +15,54 @@
 				<br><br>
 				<form th:object="${peli}" th:action="@{../save}" action="#"
 					method="post">
-					<input type="hidden" th:field="*{id}" class="form-control" /> 
-					<label for="nimi">Nimi: </label>
-					<input type="text" id="nimi" th:maxlength="50" th:field="*{nimi}" />
-					<br> 
-					<label for="alusta">Pelialusta: </label>
-					<input type="text" id="alusta" th:maxlength="50" th:field="*{alusta}" />
-					<br>
-					<label for="formaatti">Median tyyppi: </label>
-					<input type="text" id="formaatti" th:maxlength="50" th:field="*{formaatti}" />
-					<br>
-					<label for="vuosi">Julkaisuvuosi: </label>
-					<input type="text" id="vuosi" th:maxlength="4" th:field="*{vuosi}" />
-					<br>
-					<label for="info">Lisätietoja: </label> 
-					<input type="text" id="info" th:maxlength="50" th:field="*{info}" /> 
-					<br>
-					<br> 
-					<input type="submit" value="Tallenna"></input>
-					<br><br>
-					<div class="ohjetekstit">
-					- Nimi, Pelialusta, Median tyyppi, Lisätietoja, käytä 2-50 merkkiä.
-					<br>
-					- Vuosi, 4 merkkiä.</div>
-				</form>
+					<table class="table table-striped">
+					
+					<tr>
+					<td><input type="hidden" th:field="*{id}" class="form-control" /> 
+					</td>
+					</tr>
+					
+					<tr>
+					<td>Nimi: </td>
+					<td><input type="text" id="nimi" th:maxlength="50" th:field="*{nimi}" />
+					</td>
+					 <td th:if="${#fields.hasErrors('nimi')}" th:errors="*{nimi}">Virheellinen syöte</td>
+					</tr>
+					
+					<tr>
+					<td>Pelialusta: </td>
+					<td><input type="text" id="alusta" th:maxlength="50" th:field="*{alusta}" />
+					</td>
+					 <td th:if="${#fields.hasErrors('alusta')}" th:errors="*{alusta}">Virheellinen syöte</td>
+					</tr>
+					
+					<tr>
+					<td>Median tyyppi: </td>
+					<td><input type="text" id="formaatti" th:maxlength="50" th:field="*{formaatti}" />
+					</td>
+					 <td th:if="${#fields.hasErrors('formaatti')}" th:errors="*{formaatti}">Virheellinen syöte</td>
+					</tr>
+					
+					<tr>
+					<td>Julkaisuvuosi: </td>
+					<td><input type="text" id="vuosi" th:maxlength="4" th:field="*{vuosi}" />
+					</td>
+					 <td th:if="${#fields.hasErrors('vuosi')}" th:errors="*{vuosi}">Virheellinen syöte</td>
+					</tr>
+					
+					<tr>
+					<td>Lisätietoja: </td> 
+					<td><input type="text" id="info" th:maxlength="50" th:field="*{info}" /> 
+					</td>
+					 <td th:if="${#fields.hasErrors('info')}" th:errors="*{info}">Virheellinen syöte</td>
+					</tr>
+					
+					<tr> 
+					<td><input type="submit" value="Tallenna"></input>
+					</td>
+					</tr>
+					
+				</table></form>
 				<br>
 				<br>
 				<a href="/loginlista" class="muuta">Palaa takaisin listaukseen tallentamatta</a>
